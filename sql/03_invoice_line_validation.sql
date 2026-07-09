@@ -15,14 +15,7 @@ performed during QA testing.
 
 ----------------------------------------------------------
 -- TC-IL-001
--- Requirement:
 -- Verify all invoice line records can be retrieved.
---
--- Validation:
--- Ensure all InvoiceLine records are accessible from the InvoiceLine table.
---
--- Expected Result:
--- All invoice line records are returned.
 ----------------------------------------------------------
 
 SELECT
@@ -36,14 +29,7 @@ ORDER BY InvoiceLineId;
 
 ----------------------------------------------------------
 -- TC-IL-002
--- Requirement:
 -- Verify every invoice line has a quantity greater than zero.
---
--- Validation:
--- Query InvoiceLine quantity is <=0
---
--- Expected Result:
--- No rows should be returned.
 ----------------------------------------------------------
 
 SELECT
@@ -58,15 +44,7 @@ ORDER BY InvoiceLineId;
 
 ----------------------------------------------------------
 -- TC-IL-003
--- Requirement:
 -- Verify every invoice line has a UnitPrice greater than zero.
---
--- Validation:
--- Identify invoice line records with a UnitPrice less than
--- or equal to zero.
---
--- Expected Result:
--- No rows should be returned.
 ----------------------------------------------------------
 
 SELECT
@@ -81,15 +59,7 @@ ORDER BY InvoiceLineId;
 
 ----------------------------------------------------------
 -- TC-IL-004
--- Requirement:
 -- Verify every InvoiceLine belongs to a valid Invoice.
---
--- Validation:
--- Identify invoice line records whose InvoiceId
--- does not exist in the Invoice table.
---
--- Expected Result:
--- No rows should be returned.
 ----------------------------------------------------------
 
 SELECT
@@ -108,14 +78,7 @@ WHERE i.InvoiceId = l.InvoiceId
 
 ----------------------------------------------------------
 -- TC-IL-005
--- Requirement:
 -- Verify every TrackId in the InvoiceLine table exists in the Track table.
---
--- Validation:
--- Identify invoice line records whose track id is null
---
--- Expected Result:
--- No rows should be returned.
 ----------------------------------------------------------
 
 SELECT
@@ -129,3 +92,59 @@ FROM InvoiceLine l
     on l.TrackId = t.TrackId
 where t.TrackId is null
 
+----------------------------------------------------------
+-- TC-IL-006
+-- Verify there are no duplicate InvoiceLineId values.
+----------------------------------------------------------
+
+select l.InvoiceLineId, count(*) DuplicateCount
+from InvoiceLine l
+group by l.InvoiceLineId
+having count(*) > 1
+
+----------------------------------------------------------
+-- TC-IL-007
+-- Verify the same Track is not added more than once
+-- to the same Invoice.
+----------------------------------------------------------
+
+SELECT
+    l.InvoiceId,
+    l.TrackId,
+    COUNT(*) AS TrackCount
+FROM InvoiceLine l
+GROUP BY
+    l.InvoiceId,
+    l.TrackId
+HAVING COUNT(*) > 1
+ORDER BY
+    l.InvoiceId,
+    l.TrackId;
+
+----------------------------------------------------------
+-- TC-IL-008
+-- Verify that every invoice line references a valid track with a positive UnitPrice.
+----------------------------------------------------------
+
+SELECT
+    l.InvoiceLineId,
+    l.InvoiceId,
+    t.TrackId,
+    t.Name,
+    t.UnitPrice
+FROM InvoiceLine l
+    INNER JOIN Track t
+    ON l.TrackId = t.TrackId
+WHERE t.UnitPrice <= 0;
+
+----------------------------------------------------------
+-- TC-IL-009
+-- Verify every invoice contains at least one invoice line.
+----------------------------------------------------------
+
+select i.InvoiceId
+from Invoice i
+    left join InvoiceLine l
+    on i.InvoiceId = l.InvoiceId
+where l.InvoiceLineId is null
+order by i.InvoiceId, l.InvoiceLineId

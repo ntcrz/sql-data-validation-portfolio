@@ -15,14 +15,7 @@ performed during QA testing.
 
 ----------------------------------------------------------
 -- TC-CUST-001
--- Requirement:
 -- Verify all customer records can be retrieved.
---
--- Validation:
--- Ensure all customer records are accessible from the Customer table.
---
--- Expected Result:
--- All customer records are returned.
 ----------------------------------------------------------
 
 SELECT
@@ -37,15 +30,7 @@ ORDER BY CustomerId;
 
 ----------------------------------------------------------
 -- TC-CUST-002
--- Requirement:
 -- Verify only customers from Brazil are returned.
---
--- Validation:
--- Confirm the Country filter returns only Brazilian
--- customers.
---
--- Expected Result:
--- Every returned row has Country = 'Brazil'.
 ----------------------------------------------------------
 
 SELECT
@@ -59,14 +44,7 @@ ORDER BY LastName, FirstName;
 
 ----------------------------------------------------------
 -- TC-CUST-003
--- Requirement:
 -- Verify every customer has an email address.
---
--- Validation:
--- Identify any customer records with a NULL email.
---
--- Expected Result:
--- No records should be returned.
 ----------------------------------------------------------
 
 SELECT
@@ -79,14 +57,7 @@ WHERE Email IS NULL;
 
 ----------------------------------------------------------
 -- TC-CUST-004
--- Requirement:
 -- Verify duplicate emails.
---
--- Validation:
--- Identify an email that has a count > 1
---
--- Expected Result:
--- No records should be returned.
 ----------------------------------------------------------
 SELECT CustomerId,
     FirstName,
@@ -103,15 +74,8 @@ ORDER BY Email;
 
 ----------------------------------------------------------
 -- TC-CUST-005
--- Requirement:
 -- Verify duplicate customers. Check by first name, last name,
 -- email
---
--- Validation:
--- Identify count > 1
---
--- Expected Result:
--- No records should be returned.
 ----------------------------------------------------------
 SELECT
     c.FirstName,
@@ -128,14 +92,7 @@ ORDER BY c.Email;
 
 ----------------------------------------------------------
 -- TC-CUST-006
--- Requirement:
 -- Verify CustomerId values are unique
---
--- Validation:
--- Identify count > 1
---
--- Expected Result:
--- No records should be returned.
 ----------------------------------------------------------
 SELECT
     c.CustomerId,
@@ -146,14 +103,7 @@ HAVING COUNT(*) > 1;
 
 ----------------------------------------------------------
 -- TC-CUST-007
--- Requirement:
 -- Verify every customer has a valid Support Representative.
---
--- Validation:
--- Query returns customers whose SupportRepId does not exist in the Employee table.
---
--- Expected Result:
--- No rows should be returned.
 ----------------------------------------------------------
 
 SELECT
