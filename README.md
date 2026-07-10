@@ -78,7 +78,10 @@ sql-data-validation-portfolio/
 ├── bug-reports/
 │   ├── BUG-001_Duplicate_Customer_Email.md
 │   ├── BUG-002_No_Customer_Email.md
-│   └── additional bug documentation
+│   ├── BUG-003_Negative_Invoice_Total.md
+│   ├── BUG-004_Future_Invoice_Date.md
+│   ├── BUG-005_Missing_Billing_Country.md
+│   └── BUG-006_Duplicate_Track_On_Same_Invoice.md
 │
 ├── test-data/
 │   ├── 01_insert_test_defects.sql
@@ -90,8 +93,9 @@ sql-data-validation-portfolio/
 └── validation-evidence/
     ├── BUG-001.jpg
     ├── BUG-002.jpg
-    └── BUG-004.jpg
-    └── BUG-005.jpg
+    ├── BUG-003.jpg
+    ├── BUG-004.jpg
+    ├── BUG-005.jpg
     └── BUG-006.jpg
 ```
 ---
@@ -129,9 +133,6 @@ The following screenshots demonstrate examples of SQL validation results and doc
 
 <img src="./validation-evidence/BUG-005.jpg" width="700">
 
-### Duplicate Track On Same Invoice
-
-<img src="./validation-evidence/BUG-006.jpg" width="700">
 
 ---
 
@@ -186,4 +187,4 @@ This portfolio demonstrates backend SQL validation skills and practical QA techn
 
 **Anita Cruz**
 
-Senior Quality Assurance Analyst
+QA Analyst Portfolio
