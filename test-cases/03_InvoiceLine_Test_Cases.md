@@ -125,11 +125,17 @@ more than once.
 Expected Result:
 No rows should be returned.
 
+Actual Result:
+A record is returned with duplicate track on same invoice.
+
 SQL File:
 03_invoice_line_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+Bug-006
 ___________________________________________________________
 Test Case ID : TC-IL-008
 

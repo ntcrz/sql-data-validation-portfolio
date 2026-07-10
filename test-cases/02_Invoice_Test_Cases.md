@@ -38,11 +38,17 @@ Check for invoices with a negative Total value.
 Expected Result:
 No records should be returned.
 
+Actual Result:
+A record is retured with negative total
+
 SQL File:
 02_invoice_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+BUG-003
 ___________________________________________________________
 
 Test Case ID : TC-INV-003
@@ -114,11 +120,19 @@ Verify BillingCountry is populated for every invoice.
 Expected Result:
 No rows should be returned.
 
+Actual Result:
+A record is returned with a null BillingCountry
+
+
 SQL File:
 02_invoice_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+BUG-005
+
 ___________________________________________________________
 
 Test Case ID : TC-INV-007
@@ -151,11 +165,17 @@ Check for invoices where InvoiceDate have a future date
 Expected Result:
 No rows should be returned.
 
+Actual Result:
+A record is returned with a future date.
+
 SQL File:
 02_invoice_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+BUG-004
 
 ___________________________________________________________
 

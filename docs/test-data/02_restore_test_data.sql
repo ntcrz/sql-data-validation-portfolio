@@ -1,0 +1,3 @@
+RESTORE DATABASE Chinook_QA
+FROM DISK = 'C:\Backups\Chinook.bak'
+WITH REPLACE;

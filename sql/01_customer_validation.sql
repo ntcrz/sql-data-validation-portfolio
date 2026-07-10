@@ -53,7 +53,7 @@ SELECT
     LastName,
     Email
 FROM Customer
-WHERE Email IS NULL;
+WHERE Email IS NULL or EMAIL = '';
 
 ----------------------------------------------------------
 -- TC-CUST-004

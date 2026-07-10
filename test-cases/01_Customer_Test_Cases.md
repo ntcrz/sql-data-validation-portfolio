@@ -52,14 +52,17 @@ Verify every customer has an email address.
 Validation:
 Identify any customer records with a NULL email.
 
-Expected Result:
-No customer records with a NULL email address are returned.
+Actual Result:
+A customer is retured without an email address.
 
 SQL File:
 01_customer_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+BUG-002
 ___________________________________________________________
 
 Test Case ID: TC-CUST-004
@@ -73,11 +76,17 @@ Identify an email that has a count > 1
 Expected Result:
 No records should be returned.
 
+Actual Result:
+Two customers have the same email.
+
 SQL File:
 01_customer_validation.sql
 
 Status:
-Pass
+Fail
+
+Related Defect:
+BUG-001
 ___________________________________________________________
 
 Test Case ID: TC-CUST-005
