@@ -2,13 +2,18 @@
 
 ## Overview
 
-This repository demonstrates backend SQL data validation techniques commonly performed by Quality Assurance (QA) Analysts. The project uses the Chinook sample database to simulate real-world data validation scenarios, including referential integrity checks, duplicate detection, NULL validation, business rule validation, and financial data reconciliation.
+This repository demonstrates practical SQL data validation scenarios performed by QA Analysts to verify backend data accuracy, integrity, and consistency.
 
-The goal is to demonstrate how SQL can be used to validate application data during functional, regression, integration, and user acceptance testing.
+Using the Chinook sample database, this project simulates real-world QA testing activities including data integrity checks, duplicate detection, NULL validation, business rule validation, and financial reconciliation.
+
+The Chinook database provides a realistic relational dataset containing customers, invoices, invoice lines, tracks, and supporting tables for validation exercises.
+
+The SQL scripts represent validation techniques used during functional testing, regression testing, integration testing, and user acceptance testing to ensure application data meets expected requirements.
+
 
 ---
 
-## Technologies
+## Tools & Technologies
 
 - Microsoft SQL Server
 - SQL
@@ -18,10 +23,24 @@ The goal is to demonstrate how SQL can be used to validate application data duri
 
 ---
 
+## How to Run the SQL Scripts
+
+1. Install Microsoft SQL Server and SQL Server Management Studio (SSMS).
+2. Restore or configure the Chinook sample database.
+3. Open the SQL scripts located in the `/sql` folder.
+4. Execute the scripts against the Chinook database.
+5. Review the results to validate expected data conditions.
+
+Test data scripts located in `/test-data` can be used to simulate defects and restore the database state.
+
+---
+
 ## Skills Demonstrated
 
-- SQL Query Development
+- SQL Query Development & Data Analysis
 - Backend Data Validation
+- Database Testing
+- Test Data Validation
 - Functional Testing
 - Regression Testing
 - Data Integrity Validation
@@ -44,6 +63,8 @@ The goal is to demonstrate how SQL can be used to validate application data duri
 sql-data-validation-portfolio/
 │
 ├── README.md
+├── LICENSE
+│
 ├── sql/
 │   ├── 01_customer_validation.sql
 │   ├── 02_invoice_validation.sql
@@ -54,10 +75,63 @@ sql-data-validation-portfolio/
 │   ├── 02_Invoice_Test_Cases.md
 │   └── 03_InvoiceLine_Test_Cases.md
 │
-├── bug-scenarios/
+├── bug-reports/
+│   ├── BUG-001_Duplicate_Customer_Email.md
+│   ├── BUG-002_No_Customer_Email.md
+│   └── additional bug documentation
 │
-└── screenshots/
+├── test-data/
+│   ├── 01_insert_test_defects.sql
+│   └── 02_restore_test_data.sql
+│
+├── docs/
+│   └── Test_Summary_Report.md
+│
+└── validation-evidence/
+    ├── BUG-001.jpg
+    ├── BUG-002.jpg
+    └── BUG-004.jpg
+    └── BUG-005.jpg
+    └── BUG-006.jpg
 ```
+---
+
+## QA Artifacts Included
+
+This repository includes QA documentation and supporting artifacts used during backend validation testing:
+
+- SQL validation scripts for backend data verification
+- Test cases covering functional and data validation scenarios
+- Bug reports documenting defects, severity, and validation evidence
+- Test data scripts for defect simulation and database restoration
+- Test summary report documenting testing activities and results
+- Screenshots providing validation evidence
+
+---
+
+## Validation Evidence
+
+The following screenshots demonstrate examples of SQL validation results and documented defect scenarios.
+
+### Duplicate Customer Email Validation
+
+<img src="./validation-evidence/BUG-001.jpg" width="700">
+
+### Negative Invoice Total Validation
+
+<img src="./validation-evidence/BUG-003.jpg" width="700">
+
+### Future Invoice Date Validation
+
+<img src="./validation-evidence/BUG-004.jpg" width="700">
+
+### Missing Billing Country Validation
+
+<img src="./validation-evidence/BUG-005.jpg" width="700">
+
+### Duplicate Track On Same Invoice
+
+<img src="./validation-evidence/BUG-006.jpg" width="700">
 
 ---
 
@@ -94,17 +168,17 @@ sql-data-validation-portfolio/
 
 ## Future Enhancements
 
-- Reporting validation scenarios
-- Regression validation queries
-- Bug reports
-- Test summary reports
-- Test data scripts for defect simulation
+- Additional reporting validation scenarios
+- More complex regression validation queries
+- Automated database validation scripts
+- Additional defect simulation scenarios
+- Expanded test coverage for new modules
 
 ---
 
 ## About This Project
 
-This portfolio was created to strengthen backend SQL validation skills and demonstrate practical QA techniques used in enterprise applications. The scenarios are modeled after real-world testing activities performed in Agile software development environments.
+This portfolio demonstrates backend SQL validation skills and practical QA techniques used to verify application data quality in enterprise environments. The scenarios are modeled after real-world testing activities performed in Agile software development teams, including functional testing, regression testing, and defect validation.
 
 ---
 
